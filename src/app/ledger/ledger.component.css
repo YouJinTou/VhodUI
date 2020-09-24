@@ -1,0 +1,50 @@
+table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+    font-size: 15px;
+  }
+
+  .paid {
+    display: inline;
+    padding: 2px;
+    background-color: green;
+    color: white;
+    margin: 2px;
+  }
+
+  .not-paid {
+    display: inline;
+    background-color: red;
+    padding: 2px;
+    color: white;
+    margin: 2px;
+  }
+
+  .cell {
+    padding: 10px;
+  }
+
+  .expenses {
+    font-weight: bold;
+    margin-right: 5px;
+  }

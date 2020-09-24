@@ -1,0 +1,44 @@
+<table mat-table [dataSource]="units" multiTemplateDataRows>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Име</th>
+        <td mat-cell class="cell" *matCellDef="let unit">
+            <h4>
+                Етаж {{ unit.floorNumber }}, ап. {{ unit.apartmentNumber }} <i>{{unit.name}}</i>
+            </h4>
+            <h4>
+                {{unit.inhabitantsCount}} {{unit.inhabitantsCount > 1 ? " човека" : " човек"}}
+                <span class="{{unit.hasPets ? 'material-icons' : ''}}">{{unit.hasPets ? "pets" : ""}}</span>
+            </h4>
+            <div>
+                <span class="expenses">{{unit.toPay}} лв./месец</span>
+                <div class="{{unit.paidForMonth ? 'paid' : 'not-paid'}}">Платено</div>
+            </div>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="history">
+        <th mat-header-cell *matHeaderCellDef>Плащания</th>
+        <td mat-cell class="cell" *matCellDef="let unit">
+            <div class="history-unit {{h.isPaid ? 'paid' : 'not-paid'}}" *ngFor="let h of unit.history">
+                {{h.month}}
+            </div>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columns.length">
+            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <span class="material-icons">call</span> &nbsp; {{ element.phoneNumber }} 
+                &nbsp; <b>|</b> &nbsp;
+                <span class="material-icons">email</span> &nbsp; {{ element.email }}
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let element; columns: columns;" class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
