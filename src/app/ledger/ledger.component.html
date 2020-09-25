@@ -28,7 +28,7 @@
     <ng-container matColumnDef="expandedDetail">
         <td mat-cell *matCellDef="let element" [attr.colspan]="columns.length">
             <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                <span class="material-icons">call</span> &nbsp; {{ element.phoneNumber }} 
+                <span class="material-icons">call</span> &nbsp; {{ element.phoneNumber }}
                 &nbsp; <b>|</b> &nbsp;
                 <span class="material-icons">email</span> &nbsp; {{ element.email }}
             </div>

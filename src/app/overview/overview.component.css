@@ -7,11 +7,12 @@
 .metric {
     display: grid;
     font-size: 40px;
-    background-color: rgb(230, 230, 230);
+    background-color: white;
     height: 200px;
     align-items: center;
     justify-items: center;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    padding: 20px;
 }
