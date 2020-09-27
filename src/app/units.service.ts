@@ -14,10 +14,10 @@ const UNITS: Unit[] = [
     inhabitantsCount: 3,
     hasPets: false,
     history: [
-      { month: 'юни', isPaid: true },
-      { month: 'юли', isPaid: true },
-      { month: 'август', isPaid: true },
-      { month: 'септември', isPaid: false },
+      { month: 'Юни', isPaid: true },
+      { month: 'Юли', isPaid: true },
+      { month: 'Август', isPaid: true },
+      { month: 'Септември', isPaid: false },
     ]
   },
   {
@@ -32,10 +32,10 @@ const UNITS: Unit[] = [
     inhabitantsCount: 4,
     hasPets: true,
     history: [
-      { month: 'юни', isPaid: true },
-      { month: 'юли', isPaid: false },
-      { month: 'август', isPaid: true },
-      { month: 'септември', isPaid: true },
+      { month: 'Юни', isPaid: true },
+      { month: 'Юли', isPaid: false },
+      { month: 'Август', isPaid: true },
+      { month: 'Септември', isPaid: true },
     ]
   },
   {
@@ -50,10 +50,10 @@ const UNITS: Unit[] = [
     inhabitantsCount: 1,
     hasPets: false,
     history: [
-      { month: 'юни', isPaid: true },
-      { month: 'юли', isPaid: false },
-      { month: 'август', isPaid: true },
-      { month: 'септември', isPaid: false },
+      { month: 'Юни', isPaid: true },
+      { month: 'Юли', isPaid: false },
+      { month: 'Август', isPaid: true },
+      { month: 'Септември', isPaid: false },
     ]
   },
   {
@@ -68,10 +68,10 @@ const UNITS: Unit[] = [
     inhabitantsCount: 2,
     hasPets: false,
     history: [
-      { month: 'юни', isPaid: true },
-      { month: 'юли', isPaid: true },
-      { month: 'август', isPaid: true },
-      { month: 'септември', isPaid: true },
+      { month: 'Юни', isPaid: true },
+      { month: 'Юли', isPaid: true },
+      { month: 'Август', isPaid: true },
+      { month: 'Септември', isPaid: true },
     ]
   },
   {
@@ -86,10 +86,10 @@ const UNITS: Unit[] = [
     inhabitantsCount: 1,
     hasPets: true,
     history: [
-      { month: 'юни', isPaid: true },
-      { month: 'юли', isPaid: false },
-      { month: 'август', isPaid: true },
-      { month: 'септември', isPaid: false },
+      { month: 'Юни', isPaid: true },
+      { month: 'Юли', isPaid: false },
+      { month: 'Август', isPaid: true },
+      { month: 'Септември', isPaid: false },
     ]
   }
 ];

@@ -36,12 +36,15 @@
             </div>
             <div class="unit">
                 <h4 class="unit-header">Плащания</h4>
-                <div class="history-unit {{h.isPaid ? 'paid-history' : 'not-paid-history'}}"
-                    *ngFor="let h of u.history">
+                <div class="{{h.isPaid ? 'paid-history' : 'not-paid-history'}}" *ngFor="let h of u.history">
                     {{h.month}}
                 </div>
             </div>
             <mat-action-row>
+                <button (click)="pay(u)" mat-button color="primary">
+                    <span class="material-icons">payment</span>
+                    <span>Плащане</span>
+                </button>
                 <button (click)="editUnit(u)" mat-button color="primary">
                     <span class="material-icons">edit</span>
                     <span>Промени</span>

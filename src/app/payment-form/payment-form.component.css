@@ -1,0 +1,13 @@
+.not-paid-history {
+  display: inline;
+  background-color: red;
+  padding: 2px;
+  color: white;
+  margin: 2px;
+}
+
+.pay-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+}

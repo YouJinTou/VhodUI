@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LedgerComponent } from './ledger/ledger.component';
 import { AddUnitComponent } from './add-unit/add-unit.component';
 import { DeletePromptComponent } from './delete-prompt/delete-prompt.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DeletePromptComponent } from './delete-prompt/delete-prompt.component';
     LedgerComponent,
     AddUnitComponent,
     DeletePromptComponent,
+    PaymentFormComponent,
   ],
   imports: [
     BrowserModule,

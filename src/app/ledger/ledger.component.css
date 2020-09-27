@@ -38,16 +38,14 @@
 .paid-history {
   display: inline;
   padding: 2px;
-  background-color: green;
-  color: white;
+  color: green;
   margin: 2px;
 }
 
 .not-paid-history {
   display: inline;
-  background-color: red;
+  color: red;
   padding: 2px;
-  color: white;
   margin: 2px;
 }
 

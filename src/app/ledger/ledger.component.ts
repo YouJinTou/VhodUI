@@ -6,6 +6,7 @@ import { AddUnitComponent } from '../add-unit/add-unit.component';
 import { Unit } from '../models/unit';
 import { UnitsService } from '../units.service';
 import { DeletePromptComponent } from '../delete-prompt/delete-prompt.component';
+import { PaymentFormComponent } from '../payment-form/payment-form.component';
 
 @Component({
   selector: 'app-ledger',
@@ -77,6 +78,13 @@ export class LedgerComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.unitsService.addUnit(result);
     });
+  }
+
+  pay(unit: Unit) {
+    const dialogRef = this.dialog.open(PaymentFormComponent, {
+      width: '250px',
+      data: unit
+    })
   }
 
   editUnit(unit: Unit) {
