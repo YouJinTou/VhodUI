@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input [(ngModel)]="data.apartmentNumber" matInput required placeholder="Апартамент">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="data.floorNumber" matInput placeholder="Етаж">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="data.name" matInput required placeholder="Име">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="data.toPay" matInput required placeholder="Дължимо на месец">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="data.inhabitantsCount" matInput placeholder="Брой обитатели">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="data.phoneNumber" matInput placeholder="Телефон">
+        <span matSuffix class="material-icons">local_phone</span>
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="data.email" matInput placeholder="Имейл">
+        <span matSuffix class="material-icons">email</span>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="data.hasPets">Има домашни любимци</mat-checkbox>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Отказ</button>
+    <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>{{saveText}}</button>
+</div>

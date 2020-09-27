@@ -1,50 +1,61 @@
-table {
-    width: 100%;
-  }
-  
-  tr.example-detail-row {
-    height: 0;
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):hover {
-    background: whitesmoke;
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
-  }
-  
-  .example-element-row td {
-    border-bottom-width: 0;
-  }
-  
-  .example-element-detail {
-    overflow: hidden;
-    display: flex;
-    font-size: 15px;
-  }
+.wrapper {
+  margin-top: 55px;
+}
 
-  .paid {
-    display: inline;
-    padding: 2px;
-    background-color: green;
-    color: white;
-    margin: 2px;
-  }
+.header-toolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
-  .not-paid {
-    display: inline;
-    background-color: red;
-    padding: 2px;
-    color: white;
-    margin: 2px;
-  }
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  padding: 5px;
+  margin-left: 5px;
+}
 
-  .cell {
-    padding: 10px;
-  }
+.unit {
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(241, 241, 241);
+}
 
-  .expenses {
-    font-weight: bold;
-    margin-right: 5px;
-  }
+.unit-header {
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+.paid {
+  background-color: rgb(204, 255, 204);
+}
+
+.not-paid {
+  background-color: rgb(255, 241, 241);
+}
+
+.paid-history {
+  display: inline;
+  padding: 2px;
+  background-color: green;
+  color: white;
+  margin: 2px;
+}
+
+.not-paid-history {
+  display: inline;
+  background-color: red;
+  padding: 2px;
+  color: white;
+  margin: 2px;
+}
+
+.expenses {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.unit-menu {
+  z-index: 33;
+}

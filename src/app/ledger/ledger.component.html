@@ -1,44 +1,56 @@
-<table mat-table [dataSource]="units" multiTemplateDataRows>
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Име</th>
-        <td mat-cell class="cell" *matCellDef="let unit">
-            <h4>
-                Етаж {{ unit.floorNumber }}, ап. {{ unit.apartmentNumber }} <i>{{unit.name}}</i>
-            </h4>
-            <h4>
-                {{unit.inhabitantsCount}} {{unit.inhabitantsCount > 1 ? " човека" : " човек"}}
-                <span class="{{unit.hasPets ? 'material-icons' : ''}}">{{unit.hasPets ? "pets" : ""}}</span>
-            </h4>
-            <div>
-                <span class="expenses">{{unit.toPay}} лв./месец</span>
-                <div class="{{unit.paidForMonth ? 'paid' : 'not-paid'}}">Платено</div>
-            </div>
-        </td>
-    </ng-container>
+<div class="wrapper">
+    <div class="header-toolbar">
+        <div>
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Търсене" #input>
+            </mat-form-field>
+        </div>
+        <div>
+            <button (click)="addUnit()" mat-button color="primary">
+                <span class="material-icons">group_add</span>
+            </button>
+        </div>
+    </div>
 
-    <ng-container matColumnDef="history">
-        <th mat-header-cell *matHeaderCellDef>Плащания</th>
-        <td mat-cell class="cell" *matCellDef="let unit">
-            <div class="history-unit {{h.isPaid ? 'paid' : 'not-paid'}}" *ngFor="let h of unit.history">
-                {{h.month}}
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let u of units">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h4 class="unit-header {{u.paidForMonth ? 'paid' : 'not-paid'}}">
+                        Ап. {{ u.apartmentNumber }}, ет. {{ u.floorNumber }} &nbsp; <i>{{u.name}}</i>
+                    </h4>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="unit">
+                <span class="expenses">{{u.toPay}} лв./месец</span>
+                <h4 class="unit-header">
+                    {{u.inhabitantsCount}} {{u.inhabitantsCount > 1 ? " човека" : " човек"}}
+                    <span class="{{u.hasPets ? 'material-icons' : ''}}">{{u.hasPets ? "pets" : ""}}</span>
+                </h4>
+                <div>
+                    <span class="material-icons">call</span> &nbsp; {{ u.phoneNumber }}
+                </div>
+                <div>
+                    <span class="material-icons">email</span> &nbsp; {{ u.email }}
+                </div>
             </div>
-        </td>
-    </ng-container>
-
-    <ng-container matColumnDef="expandedDetail">
-        <td mat-cell *matCellDef="let element" [attr.colspan]="columns.length">
-            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                <span class="material-icons">call</span> &nbsp; {{ element.phoneNumber }}
-                &nbsp; <b>|</b> &nbsp;
-                <span class="material-icons">email</span> &nbsp; {{ element.email }}
+            <div class="unit">
+                <h4 class="unit-header">Плащания</h4>
+                <div class="history-unit {{h.isPaid ? 'paid-history' : 'not-paid-history'}}"
+                    *ngFor="let h of u.history">
+                    {{h.month}}
+                </div>
             </div>
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row *matRowDef="let element; columns: columns;" class="example-element-row"
-        [class.example-expanded-row]="expandedElement === element"
-        (click)="expandedElement = expandedElement === element ? null : element">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-</table>
+            <mat-action-row>
+                <button (click)="editUnit(u)" mat-button color="primary">
+                    <span class="material-icons">edit</span>
+                    <span>Промени</span>
+                </button>
+                <button (click)="deleteUnit(u)" mat-button color="warn">
+                    <span class="material-icons">delete_forever</span>
+                    <span>Изтрий</span>
+                </button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

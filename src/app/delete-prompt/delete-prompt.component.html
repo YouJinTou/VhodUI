@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+    Изтриване?
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="primary" (click)="onNoClick()" [mat-dialog-close]="data">Отказ</button>
+    <button mat-button color="warn" (click)="onDeleteClick()" [mat-dialog-close]="data" cdkFocusInitial>Изтрий</button>
+</div>

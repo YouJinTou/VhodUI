@@ -5,3 +5,17 @@
 .content {
     padding: 20px;
 }
+
+.list-horizontal > a {
+    display: inline-block;
+    height: auto;
+    width: auto;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: lightblue;
+}
