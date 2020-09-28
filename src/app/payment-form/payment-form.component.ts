@@ -14,12 +14,12 @@ export class PaymentFormComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<PaymentFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Unit,
+    @Inject(MAT_DIALOG_DATA) public unit: Unit,
     private unitsService: UnitsService) {
     this.dues = [];
     this.upcoming = [];
 
-    data.history.forEach(h => {
+    unit.history.forEach(h => {
       if (!h.isPaid) {
         this.dues.push(h);
       }
@@ -43,8 +43,8 @@ export class PaymentFormComponent implements OnInit {
     this.dues.splice(pastDuesIndex, 1);
 
     let found = false;
-    
-    this.data.history.forEach(h => {
+
+    this.unit.history.forEach(h => {
       if (h.month == month) {
         found = true;
         h.isPaid = true;
@@ -52,7 +52,7 @@ export class PaymentFormComponent implements OnInit {
     });
 
     if (!found) {
-      this.data.history.push({
+      this.unit.history.push({
         month: month,
         isPaid: true
       })
