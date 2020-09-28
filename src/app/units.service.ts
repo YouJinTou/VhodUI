@@ -126,4 +126,37 @@ export class UnitsService {
 
     UNITS.splice(idx, 1);
   }
+
+  getNextMonths(currentMonth: string, toTake: number): string[] {
+    let months = [
+      "Януари",
+      "Февруари",
+      "Март",
+      "Април",
+      "Май",
+      "Юни",
+      "Юли",
+      "Август",
+      "Септември",
+      "Октомври",
+      "Ноември",
+      "Декември"
+    ];
+    let result = [];
+    let startIndex = months.findIndex(m => m == currentMonth) + 1;
+    let taken = 0;
+
+    while (taken < toTake) {
+      if (startIndex >= months.length) {
+        startIndex = 0;
+      }
+
+      result.push(months[startIndex]);
+
+      taken++;
+      startIndex++;
+    }
+
+    return result;
+  }
 }

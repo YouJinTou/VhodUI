@@ -11,6 +11,7 @@ import { UnitsService } from '../units.service';
 export class PaymentFormComponent implements OnInit {
   dues: Dues[];
   upcoming: Dues[];
+  selectedMonths: string[];
 
   constructor(
     public dialogRef: MatDialogRef<PaymentFormComponent>,
@@ -25,9 +26,9 @@ export class PaymentFormComponent implements OnInit {
       }
     });
 
-    this.dues.push({ month: 'Октомври', isPaid: false });
-    this.dues.push({ month: 'Ноември', isPaid: false });
-    this.dues.push({ month: 'Декември', isPaid: false });
+    this.unitsService.getNextMonths(unit.history.slice(-1)[0].month, 3).forEach(m => {
+      this.dues.push({ isPaid: false, month: m });
+    });
   }
 
   ngOnInit(): void {
@@ -37,26 +38,27 @@ export class PaymentFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  payMonth(month: string) {
-    let pastDuesIndex = this.dues.findIndex(pd => pd.month == month);
+  pay() {
+    this.selectedMonths.forEach(month => {
+      let pastDuesIndex = this.dues.findIndex(pd => pd.month == month);
 
-    this.dues.splice(pastDuesIndex, 1);
+      this.dues.splice(pastDuesIndex, 1);
 
-    let found = false;
+      let found = false;
 
-    this.unit.history.forEach(h => {
-      if (h.month == month) {
-        found = true;
-        h.isPaid = true;
+      this.unit.history.forEach(h => {
+        if (h.month == month) {
+          found = true;
+          h.isPaid = true;
+        }
+      });
+
+      if (!found) {
+        this.unit.history.push({
+          month: month,
+          isPaid: true
+        })
       }
     });
-
-    if (!found) {
-      this.unit.history.push({
-        month: month,
-        isPaid: true
-      })
-    }
   }
-
 }

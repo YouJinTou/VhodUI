@@ -1,15 +1,22 @@
 <h2 mat-dialog-title>Плащане</h2>
 <div mat-dialog-content>
-    <div class="pay-container" *ngFor="let d of dues">
-        <div>
-            <span class="not-paid-history">{{d.month}}</span>
-        </div>
-        <div>
-            <button (click)="payMonth(d.month)" mat-raised-button color="primary">Плати</button>
-        </div>
-    </div>
+    <mat-selection-list #toPay [(ngModel)]="selectedMonths">
+        <mat-list-option *ngFor="let d of dues" [value]="d.month">
+            {{d.month}}
+        </mat-list-option>
+    </mat-selection-list>
+</div>
+<div *ngIf="toPay.selectedOptions.selected.length > 0">
+    <mat-form-field>
+        <mat-label>Основни разходи</mat-label>
+        <input matInput value="{{toPay.selectedOptions.selected.length * unit.toPay}}">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Допълнителни разходи</mat-label>
+        <input matInput value="0">
+    </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Отказ</button>
-    <button mat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial></button>
+    <button (click)="pay()" [mat-dialog-close]="unit" mat-raised-button color="primary">Плати</button>
 </div>
